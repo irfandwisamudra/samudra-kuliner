@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   navigationDrawer.addEventListener("click", (event) => {
-    event.stopPropagation(); // Prevent clicks inside drawer from closing it
+    event.stopPropagation();
   });
 
   const mediaQuery = window.matchMedia("(min-width: 768px)");
@@ -37,4 +37,49 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   mediaQuery.addEventListener("change", handleResize);
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const restaurantContainer = document.getElementById("restaurants");
+
+  // Fetch data dari file JSON
+  const fetchRestaurants = async () => {
+    try {
+      const response = await fetch("./data/DATA.json");
+      const data = await response.json();
+      return data.restaurants;
+    } catch (error) {
+      console.error("Error fetching restaurant data:", error);
+    }
+  };
+
+  // Render daftar restoran
+  const renderRestaurants = async () => {
+    const restaurants = await fetchRestaurants();
+    if (restaurants) {
+      restaurants.forEach((restaurant) => {
+        const restaurantElement = document.createElement("div");
+        restaurantElement.classList.add("restaurant-item");
+
+        restaurantElement.innerHTML = `
+          <div class="image-container">
+            <img src="${restaurant.pictureId}" alt="${restaurant.name}" />
+            <span class="restaurant-city">${restaurant.city}</span>
+            <div class="restaurant-rating">
+              <img src="./images/star.png" alt="Star Logo" />
+              <span>${restaurant.rating}</span>
+            </div>
+          </div>
+          <div class="restaurant-info">
+            <h3>${restaurant.name}</h3>
+            <p>${restaurant.description}</p>
+          </div>
+        `;
+
+        restaurantContainer.appendChild(restaurantElement);
+      });
+    }
+  };
+
+  renderRestaurants();
 });

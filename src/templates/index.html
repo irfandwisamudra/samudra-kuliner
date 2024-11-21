@@ -10,6 +10,7 @@
     <title>Samudra Kuliner</title>
   </head>
   <body>
+    <a href="#restaurant" class="skip-link">Skip To Content</a>
     <header>
       <div class="header-container">
         <div class="container">
@@ -24,10 +25,12 @@
               </a>
             </div>
             <button id="drawer-toggle" aria-label="Open Navigation Drawer">
-              <div class="line line-1"></div>
-              <div class="line line-2"></div>
-              <div class="line line-3"></div>
-            </button>            
+              <div class="line-container">
+                <div class="line line-1"></div>
+                <div class="line line-2"></div>
+                <div class="line line-3"></div>
+              </div>
+            </button>
             <ul class="nav-links">
               <li><a href="./index.html">Home</a></li>
               <li><a href="#">Favorite</a></li>
@@ -43,8 +46,10 @@
     <aside id="navigation-drawer">
       <div class="drawer-header">
         <button id="close-drawer" aria-label="Close Navigation Drawer">
-          <div class="line1"></div>
-          <div class="line2"></div>
+          <div class="line-container">
+            <div class="line line-1"></div>
+            <div class="line line-2"></div>
+          </div>
         </button>
       </div>
       <ul class="drawer-links">
@@ -53,5 +58,96 @@
         <li><a href="https://irfandwisamudra.netlify.app">About Us</a></li>
       </ul>
     </aside>
+
+    <section class="hero">
+      <div class="container">
+        <h1 class="hero-title">Temukan Restoran Terbaik di Indonesia</h1>
+        <p class="hero-description">
+          Hanya di Samudra Kuliner, kamu bisa menemukan berbagai pilihan
+          restoran terbaik dari seluruh Indonesia dengan informasi yang lengkap
+          dan akurat.
+        </p>
+        <div class="hero-buttons">
+          <a href="#restaurant" class="btn-primary">
+            Jelajahi Restoran
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 10"
+            >
+              <path
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"
+              />
+            </svg>
+          </a>
+          <a href="#tips" class="btn-secondary">Pelajari Tips Kuliner</a>
+        </div>
+      </div>
+    </section>
+
+    <main id="restaurant" class="container">
+      <h2>Daftar Restoran</h2>
+      <div id="restaurants" class="restaurants"></div>
+    </main>
+
+    <section id="tips" class="container">
+      <h2>Tips Menikmati Kuliner</h2>
+      <div class="tips-content">
+        <div class="tips-item">
+          <div class="tips-img">
+            <img src="./images/explore-local.png" alt="Explore Local" />
+          </div>
+          <h3>Eksplor Kuliner Lokal</h3>
+          <p>
+            Jangan lewatkan kesempatan mencicipi hidangan khas daerah saat
+            berkunjung ke suatu tempat. Setiap kota memiliki cita rasa unik yang
+            patut dicoba.
+          </p>
+        </div>
+        <div class="tips-item">
+          <div class="tips-img">
+            <img src="./images/try-new-flavors.png" alt="Try New Flavors" />
+          </div>
+          <h3>Coba Rasa Baru</h3>
+          <p>
+            Beranikan diri mencoba rasa baru dan makanan yang belum pernah
+            dicoba sebelumnya. Siapa tahu kamu menemukan makanan favorit baru!
+          </p>
+        </div>
+        <div class="tips-item">
+          <div class="tips-img">
+            <img src="./images/food-reviews.png" alt="Read Reviews" />
+          </div>
+          <h3>Baca Ulasan</h3>
+          <p>
+            Sebelum memilih restoran, baca ulasan dari pengunjung lain untuk
+            mendapatkan gambaran pengalaman mereka dan memilih tempat terbaik.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <p>
+            Copyright © 2024 -
+            <a href="./index.html" target="_blank">Samudra Kuliner</a>. All
+            rights reserved.
+          </p>
+          <p>
+            Develop by
+            <a href="https://irfandwisamudra.netlify.app" target="_blank"
+              >Irfan Dwi Samudra</a
+            >
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
