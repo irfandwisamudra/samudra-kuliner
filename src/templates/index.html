@@ -2,18 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Restaurant Apps</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Samudra Kuliner adalah aplikasi katalog yang menghadirkan berbagai pilihan restoran dari seluruh Indonesia"
+    />
+    <title>Samudra Kuliner</title>
   </head>
   <body>
-    <h1>Restaurant Apps Starter Project</h1>
-    <p>Hallo coders! Anda berhasil menjalankan starter project.</p>
-    <p>
-      Jangan lupa untuk menggunakan salah satu gambar yang berada pada ./images/heros
-      sebagai background hero elemen.
-    </p>
-    <img src="./images/heros/hero-image_1.jpg" width="450" alt="" />
-    <img src="./images/heros/hero-image_2.jpg" width="450" alt="" />
-    <img src="./images/heros/hero-image_3.jpg" width="450" alt="" />
-    <img src="./images/heros/hero-image_4.jpg" width="450" alt="" />
+    <header>
+      <div class="header-container">
+        <div class="container">
+          <!-- Navbar -->
+          <nav>
+            <div class="logo">
+              <a href="./index.html">
+                <div class="logo-container">
+                  <img src="./images/logo.png" alt="Samudra Kuliner" />
+                  <p class="logo-text">Samudra Kuliner</p>
+                </div>
+              </a>
+            </div>
+            <button id="drawer-toggle" aria-label="Open Navigation Drawer">
+              <div class="line line-1"></div>
+              <div class="line line-2"></div>
+              <div class="line line-3"></div>
+            </button>            
+            <ul class="nav-links">
+              <li><a href="./index.html">Home</a></li>
+              <li><a href="#">Favorite</a></li>
+              <li>
+                <a href="https://irfandwisamudra.netlify.app">About Us</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <aside id="navigation-drawer">
+      <div class="drawer-header">
+        <button id="close-drawer" aria-label="Close Navigation Drawer">
+          <div class="line1"></div>
+          <div class="line2"></div>
+        </button>
+      </div>
+      <ul class="drawer-links">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="#">Favorite</a></li>
+        <li><a href="https://irfandwisamudra.netlify.app">About Us</a></li>
+      </ul>
+    </aside>
   </body>
 </html>

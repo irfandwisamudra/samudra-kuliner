@@ -1,3 +1,285 @@
-img {
-  display: block;
+:root {
+  --primary-color: #0080ff;
+  --secondary-color: #ccd2f3;
+  --third-color: #4335a7;
+  --accent-color: #6096b4;
+  --background-color: #e3e9ff;
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  list-style: none;
+  text-decoration: none;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1320px;
+}
+
+/* Header Styles */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  height: 70px;
+  backdrop-filter: blur(10px);
+  background-color: var(--secondary-color);
+}
+
+header .header-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+nav .logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+nav .logo .logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+nav .logo .logo-container img {
+  width: 40px;
+}
+
+nav .logo .logo-container .logo-text {
+  display: inline-block;
+  color: var(--primary-color);
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul li a {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--third-color);
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.2rem;
+}
+
+
+#drawer-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#drawer-toggle .line {
+  width: 100%;
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+#drawer-toggle.open .line-1 {
+  transform: rotate(45deg);
+  position: relative;
+  top: 8px;
+}
+
+#drawer-toggle.open .line-2 {
+  opacity: 0;
+}
+
+#drawer-toggle.open .line-3 {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -8px;
+}
+
+#drawer-toggle:hover .line {
+  background-color: var(--third-color);
+}
+
+/* Navigation Drawer Styles */
+#navigation-drawer {
+  position: fixed;
+  bottom: 0;
+  left: -100%;
+  width: 80%;
+  max-width: 300px;
+  height: calc(100% - 70px);
+  background-color: var(--secondary-color);
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#navigation-drawer.active {
+  left: 0;
+}
+
+.drawer-header {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.drawer-header button {
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--primary-color);
+}
+
+.drawer-links {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 3rem;
+}
+
+.drawer-links li a {
+  color: var(--primary-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.drawer-links li a:hover {
+  color: var(--third-color);
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+  text-decoration-thickness: 0.2rem;
+}
+
+#close-drawer {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+#close-drawer div {
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background-color: var(--primary-color);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Garis diagonal kanan atas */
+#close-drawer .line1 {
+  transform: rotate(45deg);
+}
+
+/* Garis diagonal kanan bawah */
+#close-drawer .line2 {
+  transform: rotate(-45deg);
+}
+
+#close-drawer:hover div {
+  background-color: var(--third-color);
+}
+
+/* MEDIA QUERY */
+/* X-Large devices (large desktops, 1200px and up) */
+@media (max-width: 1400px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Large devices (desktops, 992px and up to 1200px) */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 992px) {
+  html {
+    font-size: 80%;
+  }
+
+  .container {
+    max-width: 720px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 768px) {
+  .container {
+    max-width: 540px;
+  }
+
+  #drawer-toggle {
+    display: flex;
+  }
+
+  nav ul.nav-links {
+    display: none;
+  }
+}
+
+/* Extra-Small devices (portrait phones, less than 576px) */
+@media (max-width: 576px) {
+  html {
+    font-size: 75%;
+  }
+
+  .container {
+    padding: 0 5%;
+  }
 }
