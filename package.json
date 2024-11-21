@@ -39,6 +39,7 @@
     "whatwg-fetch": "^3.6.2"
   },
   "dependencies": {
+    "gsap": "^3.12.5",
     "regenerator-runtime": "^0.14.0"
   }
 }

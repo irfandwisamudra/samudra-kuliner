@@ -1,5 +1,6 @@
 import "regenerator-runtime"; /* for async await transpile */
 import "../styles/main.scss";
+import gsap from "gsap";
 
 document.addEventListener("DOMContentLoaded", () => {
   const drawerToggle = document.getElementById("drawer-toggle");
@@ -9,11 +10,23 @@ document.addEventListener("DOMContentLoaded", () => {
   drawerToggle.addEventListener("click", (event) => {
     event.stopPropagation();
     navigationDrawer.classList.toggle("active");
+
+    if (navigationDrawer.classList.contains("active")) {
+      gsap.fromTo(
+        navigationDrawer,
+        { x: -300, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.5 }
+      );
+    } else {
+      gsap.to(navigationDrawer, { x: -300, opacity: 0, duration: 0.5 });
+    }
   });
 
   closeDrawer.addEventListener("click", (event) => {
     event.stopPropagation();
     navigationDrawer.classList.remove("active");
+
+    gsap.to(navigationDrawer, { x: -300, opacity: 0, duration: 0.5 });
   });
 
   document.addEventListener("click", (event) => {
@@ -22,6 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
       !navigationDrawer.contains(event.target)
     ) {
       navigationDrawer.classList.remove("active");
+
+      gsap.to(navigationDrawer, { x: -300, opacity: 0, duration: 0.5 });
     }
   });
 
@@ -57,7 +72,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   const renderRestaurants = async () => {
     const restaurants = await fetchRestaurants();
     if (restaurants) {
-      restaurants.forEach((restaurant) => {
+      restaurants.forEach((restaurant, index) => {
         const restaurantElement = document.createElement("div");
         restaurantElement.classList.add("restaurant-item");
 
@@ -76,6 +91,13 @@ document.addEventListener("DOMContentLoaded", async () => {
           </div>
         `;
 
+        gsap.from(restaurantElement, {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          delay: index * 0.2 + 1,
+        });
+
         restaurantContainer.appendChild(restaurantElement);
       });
     }
@@ -83,3 +105,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   renderRestaurants();
 });
+
+// Menambahkan animasi GSAP untuk hero section
+gsap.from(".hero-title", { opacity: 0, y: -50, duration: 1 });
+gsap.from(".hero-description", { opacity: 0, y: 30, duration: 1, delay: 0.5 });
+gsap.from(".hero-buttons", { opacity: 0, y: 20, duration: 1, delay: 1 });
+gsap.from(".restaurant-title", { opacity: 0, y: 50, duration: 1, delay: 1 });
+gsap.from(".tips-title", { opacity: 0, y: 50, duration: 1, delay: 2.5 });
+gsap.from(".tips-item", { opacity: 0, y: 50, duration: 1, delay: 3 });

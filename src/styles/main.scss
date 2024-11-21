@@ -451,7 +451,7 @@ padding: 6rem 1rem 0;
   padding: 5rem 5%;
 }
 
-h2 {
+.restaurant-title {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 2rem;
@@ -460,7 +460,7 @@ h2 {
 
 .restaurants {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 
   .restaurant-item {
@@ -539,7 +539,7 @@ h2 {
 padding: 6rem 1rem;
 text-align: center;
 
-h2 {
+.tips-title {
   font-size: 2rem;
   color: $primary-color;
   margin-bottom: 1.5rem;
